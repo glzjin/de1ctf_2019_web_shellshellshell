@@ -1,0 +1,33 @@
+version: "2"
+
+networks:
+  shellshellshell_network:
+    internal: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/24
+  shellshellshell_out_network:
+
+services:
+
+  web:
+    build: ./web1
+    image: ctftraining/de1ctf_2019_web_shellshellshell_web1
+    restart: always
+    ports:
+      - "127.0.0.1:8302:80"
+    networks:
+      shellshellshell_network:
+        ipv4_address: 172.18.0.3
+      shellshellshell_out_network:
+
+  web2:
+    build: ./web2
+    image: ctftraining/de1ctf_2019_web_shellshellshell_web2
+    restart: always
+    environment:
+      - FLAG=flag{glzjin_wants_a_girl_firend}
+    networks:
+      shellshellshell_network:
+        ipv4_address: 172.18.0.2
