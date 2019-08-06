@@ -7,5 +7,5 @@ RUN cp -rf /tmp/html/ /var/www/ && \
     chown -R root:root /var/www/html && \
     chmod -R 755 /var/www/html && \
     mkdir /var/sandbox/ && \
-    chown -R www-data:www-data /var/sandbox/ &&
+    chown -R www-data:www-data /var/sandbox/ && \
     mv /tmp/flag.sh /
